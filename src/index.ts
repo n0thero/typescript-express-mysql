@@ -7,11 +7,9 @@ app.get('/', async (req: Request, res: Response) => {
 
     let a;
 
-    await User.find(1).then(r => {
-        a = r;
-    });
+    let d = await User.find(1);
 
-    res.json(a);
+    res.json(d);
 });
 
 app.listen(3000, () => {
