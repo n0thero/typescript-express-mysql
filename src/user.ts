@@ -14,6 +14,6 @@ export default class User {
             WHERE id = '${id}'
             LIMIT 1`);
 
-        return new User(rows[0].id + 10, rows[0].name + '!');
+        return new User(rows[0].id, rows[0].name);
     }
 }
