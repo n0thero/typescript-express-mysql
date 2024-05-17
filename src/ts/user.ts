@@ -1,26 +1,19 @@
 import db from './core/db';
 
 export default class User {
-    constructor(private name: string) {
+
+    constructor(public id: number, public name: string) {
+
     }
 
-    getName(): string {
-        return this.name;
-    }
+    static async find(id: number) {
 
-    static find(id: number) {
+        let [rows] = await db.promise().query(`
+            SELECT *
+            FROM users
+            WHERE id = '${id}'
+            LIMIT 1`);
 
-        return new Promise(resolve => {
-
-            db.query(`
-                SELECT *
-                FROM users
-                WHERE id = '${id}'
-                LIMIT 1`, (err, result) => {
-                resolve(result);
-            });
-
-        })
-            .then(result => result);
+        return new User(rows[0].id + 10, rows[0].name + '!');
     }
 }

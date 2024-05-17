@@ -1,16 +1,19 @@
-import * as express from 'express';
+import express, { Request, Response } from 'express';
 import User from './user';
-import db from "./core/db";
 
 const app = express();
-const user = new User('nothero');
 
-app.get('/', (req, res) => {
+app.get('/', async (req: Request, res: Response) => {
 
-    User.find(1)
-        .then(result => {
-            res.json(result);
-        });
+    let a;
+    let b = '1';
+
+    await User.find(1).then(r => {
+        a = r;
+        b += '2';
+    });
+
+    res.json(a);
 });
 
 app.listen(3000, () => {

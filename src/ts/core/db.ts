@@ -8,12 +8,6 @@ const dbConfig: ConnectionOptions = {
     database: config.db.database
 };
 
-const db: Connection = createConnection(dbConfig);
-
-db.connect(err => {
-    if (err) {
-        return;
-    }
-});
+const db = createConnection(dbConfig);
 
 export default db;

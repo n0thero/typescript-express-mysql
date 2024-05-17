@@ -1,9 +1,16 @@
 {
   "compilerOptions": {
-    "target": "es6",
-    "module": "CommonJS",
+    "target": "es2022",
+    "module": "commonjs",
     "outDir": "./dist",
-    "allowSyntheticDefaultImports": true
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "noEmitOnError": true,
+    "noImplicitAny": false,
   },
   "include": ["src/**/*.ts"]
 }
